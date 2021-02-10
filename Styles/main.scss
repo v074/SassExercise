@@ -1,0 +1,39 @@
+@import "values";
+
+.main{
+    background-color:tan;
+    // the only perceivable way to use the given flex mixin to align h1-h3 on the .main div.  Worth noting if the h4 did not exist, this would entirely satisfy Bonus 3.
+    // @include flex(space-between, center);
+    h1{
+        color:#ddd;
+        &:hover{
+            @extend %center;
+            text-decoration:underline;
+    }
+}
+    h2{
+        background-color:$brown1;
+        // Centering the h2 element.
+        // @include flex(center, center);
+    }
+    h3{
+        color:$brown1;
+        // Moving the h3 element to the far right.
+        // @include flex(flex-end, center);
+    }
+}
+
+// An aside: I suspect it is impossible as-is to simultaneously arrange h1-h3 from left to right and center them vertically while excluding h4, all using a single repeated two-variable mixin.  Were it possible to add a container div to isolate h1-h3 from h4, this would be possible but barring something that is so far outside the scope of our current knowledge that it would be impossible to find on W3 or StackOverflow, I am suspecting that this is impossible within the parameters given by the question.
+
+.minor{
+    background-color:silver;
+    h1{
+        text-decoration:underline;
+        @extend %center;
+        margin-bottom:25px*4;
+    }
+    h2{
+        text-decoration:line-through;
+        @extend %center;
+    }
+}
